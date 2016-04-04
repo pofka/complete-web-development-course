@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>autocomplete</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+        <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/blitzer/jquery-ui.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+        <style>
+            .blueBox {
+                background-color: blue;
+                color: white;
+                height: 100px;
+                width: auto;
+            }
+            .yellowBox {
+                background-color: yellow;
+                height: 100px;
+                width: auto;
+            }
+            .greenBox {
+                background-color: green;
+                height: 100px;
+                width: auto;
+            }
+            #great {
+                background-color: #010f36;
+            }
+            .ui-autocomplete {
+                max-height: 100px;
+                overflow-y: auto;
+                max-width: 200px;
+                overflow-x: hidden; /* hidding horizontal collumn for loooooooooooooong #city values */
+            }
+            #city {
+                width: 200px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="blueBox ui-corner-all" id="facebook">
+            <p>Facebook</p>
+            <p>Input your city: <input id="city"></p>
+        </div>
+        <div class="yellowBox ui-corner-all" id="apple">
+            <p>Apple.</p>
+        </div>
+        <div class="greenBox ui-corner-all" id="microsoft">
+            <p class="microsoftparagraph" id="microsoft">Microsoft.</p>
+            <p><a href="http://www.microsoft.com" title="microsoft" id="microsoftLink"</p>
+        </div>
+        <script>
+            $(function(){
+               $("#city").autocomplete({
+                   source: ["London", "Vilnius", "Paris", "Kaunas", "Pakruojis"]
+               }) 
+            });
+        </script>
+    </body>
+</html>

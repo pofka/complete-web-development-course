@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>html</title>
+        <style>
+            .blueBox {
+                background-color: blue;
+                color: white;
+                height: auto;
+                width: auto;
+            }
+            .yellowBox {
+                background-color: yellow;
+                height: auto;
+                width: auto;
+            }
+            .greenBox {
+                background-color: green;
+                height: auto;
+                width: auto;
+            }
+            #great {
+                background-color: #010f36;
+            }
+        </style>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    </head>
+    <body>
+        <div class="blueBox" id="facebook">
+            <p>Facebook is <span id="great">great.</span></p>
+        </div>
+        <div class="yellowBox" id="apple">
+            <p>Apple.</p>
+        </div>
+        <div class="greenBox" id="microsoft">
+            <p id="microsoftParagraph">Microsoft.</p>
+            <p><a href="http://www.microsoft.com" title="microsoft" id="microsoftLink">Microsoft link</a></p>
+        </div>
+        <p>Enter your name:<input></p>
+        <button id="changeFacebook">Change Facebook text.</button>
+        <button id="changeApple">Change Apple</button>
+        <button id="changeInput">Change input value</button>
+        <button id="changeMicrosoft">Change microsoft.</button>
+        <script>
+             $(function() {
+              $("#changeFacebook").click(function() {
+                    $("#facebook").text("This is facebook.");                    
+                });
+                $("#changeApple").click(function() {
+                    $("#apple").html("<p>This is apple.</p><p>New IOs available</p>");                    
+                });
+                $("#changeInput").click(function() {
+                    $("input").val("Pofka");                    
+                });
+                $("#changeMicrosoft").click(function() {
+                   $("#microsoftLink").attr({
+                       "href" : "http://www.google.com",
+                       "title" : "Google"
+                   });
+                });
+              });
+        </script>
+    </body>
+</html>

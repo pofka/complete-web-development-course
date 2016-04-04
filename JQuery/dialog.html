@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>html</title>
+         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+        <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/blitzer/jquery-ui.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+        <style>
+            .blueBox {
+                background-color: blue;
+                color: white;
+                height: 100px;
+                width: auto;
+            }
+            .yellowBox {
+                background-color: yellow;
+                height: 100px;
+                width: auto;
+            }
+            .greenBox {
+                background-color: green;
+                height: 100px;
+                width: auto;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="blueBox ui-corner-all" id="facebook">
+            <p>Facebook.</p>
+        </div>
+        <div class="yellowBox uicorner-all" id="apple">
+            <p>Apple.</p>
+        </div>
+        <div class="greenBox ui-corner-all" id="microsoft">
+            <p class="microsoftparagraph" id="microsoft">Microsoft.</p>
+        </div>
+        <div id="myDialog" title="This is a dialog">
+                <p>Welcome to our page.</p>
+            </div>
+        <div id="confirmation" title="Leave the page?">
+            <p><span class="ui-icon ui-icon-alert" style="float: left"></span>You will loose all unsaved data. R U sure?</p>
+        </div>
+            <button id="open">Open dialog</button>
+            <button id="goToPreviousPage">Go to previous page</button>
+        <script>
+            $(function(){
+                $("#myDialog").dialog({
+                    autoOpen: false,
+                });
+                $("#open").click(function(){
+                    $("#myDialog").dialog("open");
+                });
+                $("button").button();
+                $("#confirmation").dialog({
+                    autoOpen: false,
+                    modal: true,
+                    buttons: {
+                        "Go to previous page": function(){
+                            window.history.back();
+                        },
+                        Cancel: function(){
+                            $(this).dialog("close");
+                        }
+                    }
+                });
+                $("#goToPreviousPage").click(function(){
+                   $("#confirmation").dialog("open"); 
+                });
+            });
+        </script>
+    </body>
+</html>

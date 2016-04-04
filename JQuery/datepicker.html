@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Date Picker</title>
+         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+        <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/blitzer/jquery-ui.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+        <style>
+            .blueBox {
+                background-color: blue;
+                color: white;
+                height: 100px;
+                width: auto;
+            }
+            .yellowBox {
+                background-color: yellow;
+                height: 100px;
+                width: auto;
+            }
+            .greenBox {
+                background-color: green;
+                height: 100px;
+                width: auto;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="blueBox ui-corner-all" id="facebook">
+            <p>Flight departure date: <input id="departure"></p>
+            <p>Flight return date: <input id="return"></p>
+        </div>
+        <div class="yellowBox uicorner-all" id="apple">
+            <p>Apple.</p>
+        </div>
+        <div class="greenBox ui-corner-all" id="microsoft">
+            <p class="microsoftparagraph" id="microsoft">Microsoft.</p>
+            <p><a href="http://www.microsoft.com" title="microsoft" id="microsoftLink"</p>
+        </div>
+        <script>
+            // Lithuanian (UTF-8) initialisation for the jQuery UI date picker plugin.
+// @author Arturas Paleicikas <arturas@avalon.lt>
+            jQuery(function($){
+	$.datepicker.regional['lt'] = {
+		closeText: 'Uždaryti',
+		prevText: '&#x3c;Atgal',
+		nextText: ' &#x3e;',
+		currentText: 'Šiandien',
+		monthNames: ['Sausis','Vasaris','Kovas','Balandis','Gegužė','Birželis',
+		'Liepa','Rugpjūtis','Rugsėjis','Spalis','Lapkritis','Gruodis'],
+		monthNamesShort: ['Sau','Vas','Kov','Bal','Geg','Bir',
+		'Lie','Rugp','Rugs','Spa','Lap','Gru'],
+		dayNames: ['sekmadienis','pirmadienis','antradienis','trečiadienis','ketvirtadienis','penktadienis','šeštadienis'],
+		dayNamesShort: ['sek','pir','ant','tre','ket','pen','šeš'],
+		dayNamesMin: ['Se','Pr','An','Tr','Ke','Pe','Še'],
+		dateFormat: 'MM dd', firstDay: 1,
+		isRTL: false};
+	$.datepicker.setDefaults($.datepicker.regional['lt']);
+});
+            $(function(){
+               $("#departure").datepicker({
+                   showAnim: "fadeIn",
+                   changeYear: true,
+                   numberOfMonths: 1,
+                   dateFormat: "dd/mm/y",
+                   showOn: "button",
+                   buttonText: "Choose your departure date",
+                   minDate: +1,
+                   maxDate: "+12M +10D",
+                   onClose: function(selectedDate){
+                       $("#return").datepicker("option", "minDate", selectedDate)
+                   },
+                   showWeek: true
+               });
+                $("#return").datepicker({
+                    dateFormat: "dd/mm/y"
+                });
+            });
+        </script>
+    </body>
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Accordion</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+        <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+        <style>
+            .blueBox {
+                background-color: blue;
+                color: white;
+                height: auto;
+                width: auto;
+            }
+            .yellowBox {
+                background-color: yellow;
+                height: 100px;
+                width: auto;
+                padding: 10px;
+            }
+            .greenBox {
+                background-color: green;
+                height: auto;
+                width: auto;
+                padding: 10px;
+            }
+            #great {
+                background-color: #010f36;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="resizer" class="ui-widget-content">
+            <div class="blueBox ui-corner-all" id="facebook">
+            <h3>Section1</h3>
+            <div>
+                <p>Content1</p>
+                <p>Content1</p>
+                <p>Content1</p>
+                <p>Content1</p>
+            </div>
+            <h3>Section2</h3>
+            <div><p>Content2</p></div>
+            <h3>Section3</h3>
+            <div><p>Content3</p></div>
+            <p>Facebook is <span id="great">great.</span></p>
+        </div>
+        </div>
+        <div class="yellowBox ui-corner-all" id="apple">
+            <p>Apple.</p>
+            </ul>
+        </div>
+        <div class="greenBox ui-corner-all" id="microsoft">
+            <p class="microsoftparagraph" id="microsoft">Microsoft.</p>
+            <p><a href="http://www.microsoft.com" title="microsoft" id="microsoftLink">Microsoft link.</a></p>
+        </div>
+        <script>
+            $(function(){
+              $("#facebook").accordion({
+                  collapsible: true,
+                  icons: {
+                      header: "ui-icon-circle-arrow-e",
+                      activeHeader: "ui-icon-circle-arrow-s"
+                  },
+                  heightStyle: "fill"
+              });
+                $("#resizer").resizable({
+                    resize: function(){
+                        $("#facebook").accordion("refresh");
+                    }
+                });
+            });
+        </script>
+    </body>
+</html>

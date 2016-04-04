@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>resizable</title>
+        <style>
+            .blueBox {
+                background-color: blue;
+                color: white;
+                height: 100px;
+                width: 300px;
+            }
+            .yellowBox {
+                background-color: yellow;
+                height: 100px;
+                width: auto;
+            }
+            .greenBox {
+                background-color: green;
+                height: 100px;
+                width: auto;
+            }
+            #great {
+                background-color: #010f36;
+            }
+            .sans-serif {
+                font-family: sans-serif;
+            }
+            #container {
+                width: 300px;
+                height: 300px;
+                border-style: dotted;
+            }
+        </style>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+        <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/blitzer/jquery-ui.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+    </head>
+    <body>
+        <div class="blueBox ui-corner-all" id="facebook">
+            <p>Facebook is <span id="great">great.</span></p>
+        </div>
+        <div id="container">
+            <div class="yellowBox sans-serif ui-corner-all" id="apple">
+            <p>Apple</p>
+        </div>
+        </div>
+        <div class="greenBox ui-corner-all" id="microsoft">
+            <p class="microsoftparagraph">Microsoft.</p>
+        </div>
+        <script>
+            $(function() {
+               $("#facebook").resizable({
+                   maxHeight: 200,
+                   minHeight: 50,
+                   minWidth: 100,
+                   maxWidth: 300,
+                   aspectRatio: 4/3,
+                   ghost: true,
+                   alsoResize: "#microsoft"
+               });
+                $("#apple").resizable({
+                    containment: "#container",
+                    animate: true
+                });
+            });
+        </script>
+    </body>
+</html>

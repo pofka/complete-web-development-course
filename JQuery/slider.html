@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>html</title>
+         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+        <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/blitzer/jquery-ui.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+        <style>
+            .blueBox {
+                background-color: blue;
+                color: white;
+                height: 100px;
+                width: auto;
+            }
+            .yellowBox {
+                background-color: yellow;
+                height: 100px;
+                width: auto;
+            }
+            .greenBox {
+                background-color: green;
+                height: 100px;
+                width: auto;
+                margin-bottom: 20px;
+            }
+            #slider, mileageRange {
+                color: #0505bb;
+                border: 0;
+                font-weight: bold;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="blueBox ui-corner-all" id="facebook">
+            <p>Facebook.</p>
+        </div>
+        <div class="yellowBox ui-corner-all" id="apple">
+            <p>Apple.</p>
+        </div>
+        <div class="greenBox ui-corner-all" id="microsoft">
+            <p class="microsoftparagraph" id="microsoft">Microsoft.</p>
+        </div>
+        <div id="slider"></div>
+        <label for="slider">Value:</label>
+        <input type="text" id="sliderValue" readonly>
+        <div id="rangeSlider"></div>
+        <label for="rangeSlider">Mileage:</label>
+        <input type="text" id="mileageRange" readonly>
+        <script>
+            $(function(){
+                $("#slider").slider({
+                    slide: function(event, ui){
+                        $("#sliderValue").val(ui.value);
+                    },
+                    min: 0,
+                    max: 25
+                });
+                $("#sliderValue").val(0);
+                $("#rangeSlider").slider({
+                    range: true,
+                    min: 0,
+                    max: 200000,
+                    step: 1000,
+                    values: [0, 20000],
+                    slide: function(event, ui){
+                        $("#mileageRange").val(ui.values[0] + " miles - " + ui.values[1] + " miles");
+                    }
+                });
+                $("#mileageRange").val($("#rangeSlider").slider("values", 0) + " miles - " + $("#rangeSlider").slider("values", 1) + " miles");
+            });
+        </script>
+    </body>
+</html>
